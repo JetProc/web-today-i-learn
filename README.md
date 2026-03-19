@@ -5,7 +5,7 @@ HTML, CSS, JavaScript를 활용해 만든 정적 개인 소개 페이지입니�
 프로필, 자기소개, 기본 정보 표, 9장 갤러리, 인생 작품, TIL 입력 폼과 목록을 포함합니다.
 
 ## 배포 링크
-GitHub Pages 배포 후 여기에 링크를 추가할 예정입니다.
+[https://jetproc.github.io/web-today-i-learn/](https://jetproc.github.io/web-today-i-learn/)
 
 ## 구현 포인트
 - 정적 콘텐츠는 [`js/content-data.js`](./js/content-data.js)에서 한 번에 관리하도록 분리했습니다.
