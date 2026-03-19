@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#f5f7ef"/>
+  <ellipse cx="400" cy="594" rx="220" ry="56" fill="#dae7d2"/>
+  <circle cx="402" cy="358" r="128" fill="#d2c0a8"/>
+  <circle cx="310" cy="248" r="54" fill="#c7b498"/>
+  <circle cx="494" cy="248" r="54" fill="#c7b498"/>
+  <circle cx="310" cy="248" r="20" fill="#f1e8dc"/>
+  <circle cx="494" cy="248" r="20" fill="#f1e8dc"/>
+  <circle cx="350" cy="356" r="10" fill="#2a2a2a"/>
+  <circle cx="454" cy="356" r="10" fill="#2a2a2a"/>
+  <path d="M382 390h40c0 22-8 34-20 34s-20-12-20-34Z" fill="#d78f84"/>
+  <path d="M306 478c56 42 136 42 192 0" fill="none" stroke="#b39e84" stroke-linecap="round" stroke-width="18"/>
+  <text x="400" y="716" fill="#716350" font-family="Verdana, sans-serif" font-size="42" font-weight="700" text-anchor="middle">ANIMAL</text>
+</svg>

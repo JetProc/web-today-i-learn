@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#f7f3e7"/>
+  <ellipse cx="400" cy="560" rx="214" ry="66" fill="#d8e7d1"/>
+  <rect x="270" y="334" width="260" height="186" rx="24" fill="#bfd5ab"/>
+  <path d="M258 356c0-69 64-122 142-122s142 53 142 122H258Z" fill="#7cb46a"/>
+  <circle cx="330" cy="282" r="18" fill="#f8f6ef"/>
+  <circle cx="402" cy="250" r="24" fill="#f8f6ef"/>
+  <circle cx="468" cy="288" r="20" fill="#f8f6ef"/>
+  <rect x="242" y="520" width="316" height="42" rx="21" fill="#f7ead0"/>
+  <text x="400" y="704" fill="#55774b" font-family="Verdana, sans-serif" font-size="42" font-weight="700" text-anchor="middle">DESSERT</text>
+</svg>

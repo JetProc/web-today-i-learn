@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <rect width="800" height="800" fill="#edf6ee"/>
+  <circle cx="620" cy="170" r="90" fill="#f8d7a8"/>
+  <rect x="120" y="470" width="560" height="180" rx="36" fill="#d7e7da"/>
+  <rect x="250" y="445" width="300" height="40" rx="20" fill="#4a7c59"/>
+  <circle cx="400" cy="275" r="118" fill="#f5c8b6"/>
+  <path d="M280 272c28-78 92-118 120-118 73 0 126 53 126 117 0 39-8 65-8 65H280s-17-34 0-64Z" fill="#395e45"/>
+  <rect x="282" y="382" width="236" height="190" rx="100" fill="#86a48d"/>
+  <rect x="198" y="485" width="404" height="112" rx="20" fill="#fff"/>
+  <rect x="222" y="507" width="356" height="68" rx="12" fill="#f4f0e7"/>
+  <circle cx="360" cy="292" r="9" fill="#3a342f"/>
+  <circle cx="440" cy="292" r="9" fill="#3a342f"/>
+  <path d="M360 342c21 18 59 18 80 0" fill="none" stroke="#9a5e50" stroke-linecap="round" stroke-width="8"/>
+  <text x="400" y="552" fill="#4a7c59" font-family="Verdana, sans-serif" font-size="42" font-weight="700" text-anchor="middle">PROFILE</text>
+</svg>
