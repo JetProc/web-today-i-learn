@@ -1,13 +1,13 @@
 export const pageContent = {
   site: {
-    brandName: 'Paradi Archive',
-    footerText: '© 2026 Paradi Archive. Music, code, and everyday notes.',
+    brandName: '파라디 아카이브',
+    footerText: '© 2026 파라디 아카이브. Music, code, and everyday notes.',
   },
   profile: {
     nickname: '파라디',
-    tagline: '음악과 개발, 운동과 기록을 좋아하는 프런트엔드 학습자',
+    tagline: '하고 싶은 일 모두 할 수 있음 좋겠네~',
     image: {
-      src: './images/profile-photo.jpg',
+      src: './images/profile.jpeg',
       fallbackSrc: './images/profile-mint.svg',
       alt: '파라디의 프로필 사진',
     },
@@ -35,7 +35,7 @@ export const pageContent = {
       {
         caption: '좋아하는 음식',
         image: {
-          src: './images/gallery-food.jpg',
+          src: './images/food.jpeg',
           fallbackSrc: './images/gallery-food.svg',
           alt: '좋아하는 음식 사진',
         },
@@ -43,7 +43,7 @@ export const pageContent = {
       {
         caption: '취미',
         image: {
-          src: './images/gallery-hobby.jpg',
+          src: './images/drum.png',
           fallbackSrc: './images/gallery-hobby.svg',
           alt: '취미를 담은 사진',
         },
@@ -59,7 +59,7 @@ export const pageContent = {
       {
         caption: '좋아하는 디저트',
         image: {
-          src: './images/gallery-dessert.jpg',
+          src: './images/dessert.jpeg',
           fallbackSrc: './images/gallery-dessert.svg',
           alt: '좋아하는 디저트 사진',
         },
@@ -75,7 +75,7 @@ export const pageContent = {
       {
         caption: '기억에 남는 여행지',
         image: {
-          src: './images/gallery-travel.jpg',
+          src: './images/travel.jpeg',
           fallbackSrc: './images/gallery-travel.svg',
           alt: '기억에 남는 여행지 사진',
         },
@@ -83,7 +83,7 @@ export const pageContent = {
       {
         caption: '좋아하는 동물',
         image: {
-          src: './images/gallery-animal.jpg',
+          src: './images/cat.jpeg',
           fallbackSrc: './images/gallery-animal.svg',
           alt: '좋아하는 동물 사진',
         },
@@ -91,7 +91,7 @@ export const pageContent = {
       {
         caption: '좋아하는 계절',
         image: {
-          src: './images/gallery-season.jpg',
+          src: './images/spring.jpeg',
           fallbackSrc: './images/gallery-season.svg',
           alt: '좋아하는 계절 사진',
         },
@@ -99,9 +99,9 @@ export const pageContent = {
       {
         caption: '좋아하는 색깔',
         image: {
-          src: './images/gallery-color.jpg',
+          src: './images/gallery-color.svg',
           fallbackSrc: './images/gallery-color.svg',
-          alt: '좋아하는 색감을 담은 사진',
+          alt: '연한 주황색 단색 이미지',
         },
       },
     ],
