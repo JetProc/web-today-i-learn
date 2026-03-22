@@ -112,5 +112,27 @@
     <footer>
       <p id="footer-copy"></p>
     </footer>
+
+    <div class="gallery-lightbox" id="gallery-lightbox" hidden aria-hidden="true">
+      <div
+        class="gallery-lightbox-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="gallery-lightbox-caption"
+      >
+        <button
+          type="button"
+          class="gallery-lightbox-close"
+          id="gallery-lightbox-close"
+          aria-label="확대 이미지 닫기"
+        >
+          닫기
+        </button>
+        <figure class="gallery-lightbox-figure">
+          <img id="gallery-lightbox-image" alt="" />
+          <figcaption id="gallery-lightbox-caption"></figcaption>
+        </figure>
+      </div>
+    </div>
   </body>
 </html>

@@ -14,12 +14,11 @@ export const pageContent = {
   },
   intro: {
     paragraphs: [
-      '안녕하세요. 파라디입니다. 저는 프런트엔드 개발을 배우면서 화면 위에 제 취향과 기록을 차곡차곡 쌓아 가는 과정을 좋아합니다.',
-      '음악, 개발, 운동, 독서를 일상 루틴처럼 이어 가고 있고, 배운 것을 그냥 지나치지 않고 직접 정리하고 남기는 습관을 중요하게 생각합니다.',
+      '안녕하세요? 파라디입니다. 파라디 섬에 꼭 가보고 싶어요.',
     ],
-    linksPrefix: '더 자세한 작업 기록은 ',
-    links: [{ label: 'GitHub', href: 'https://github.com/jetproc' }],
-    linksSuffix: '에서 계속 정리하고 있습니다.',
+    linksPrefix: '더 자세한 기록은 ',
+    links: [{ label: '깃헙 주소', href: 'https://github.com/jetproc' }],
+    linksSuffix: '에 들어가도 사실 별 건 없지만 참고해 주세요!',
   },
   infoTable: [
     { label: '이름', value: '파라디' },
@@ -51,7 +50,7 @@ export const pageContent = {
       {
         caption: '이상형의 분위기',
         image: {
-          src: './images/gallery-ideal.jpg',
+          src: './images/이상형.jpeg',
           fallbackSrc: './images/gallery-ideal.svg',
           alt: '이상형의 분위기를 떠올리게 하는 사진',
         },
@@ -65,11 +64,11 @@ export const pageContent = {
         },
       },
       {
-        caption: '닮은 캐릭터',
+        caption: '닮은 동물',
         image: {
-          src: './images/gallery-character.jpg',
+          src: './images/레서판다.jpeg',
           fallbackSrc: './images/gallery-character.svg',
-          alt: '닮은 캐릭터를 떠올리게 하는 사진',
+          alt: '레서판다 사진',
         },
       },
       {

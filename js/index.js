@@ -18,9 +18,14 @@ const elements = {
   tilContent: document.querySelector("#til-content"),
   tilList: document.querySelector("#til-list"),
   footerCopy: document.querySelector("#footer-copy"),
+  galleryLightbox: document.querySelector("#gallery-lightbox"),
+  galleryLightboxClose: document.querySelector("#gallery-lightbox-close"),
+  galleryLightboxImage: document.querySelector("#gallery-lightbox-image"),
+  galleryLightboxCaption: document.querySelector("#gallery-lightbox-caption"),
 };
 
 let tilEntries = loadTilEntries();
+let lastGalleryTrigger = null;
 
 renderPage();
 bindEvents();
@@ -39,6 +44,10 @@ function renderPage() {
 function bindEvents() {
   elements.tilForm.addEventListener("submit", handleTilSubmit);
   elements.tilForm.addEventListener("reset", handleTilReset);
+  elements.galleryGrid.addEventListener("click", handleGalleryClick);
+  elements.galleryLightbox.addEventListener("click", handleGalleryLightboxClick);
+  elements.galleryLightboxClose.addEventListener("click", closeGalleryLightbox);
+  document.addEventListener("keydown", handleDocumentKeydown);
 }
 
 function renderSiteCopy() {
@@ -137,13 +146,21 @@ function renderGallery() {
 
   pageContent.gallery.items.forEach((item) => {
     const figure = document.createElement("figure");
+    const trigger = document.createElement("button");
     const image = createImage(item.image);
     const caption = document.createElement("figcaption");
 
     figure.className = "gallery-item";
+    trigger.className = "gallery-trigger";
+    trigger.type = "button";
+    trigger.setAttribute(
+      "aria-label",
+      `${withFallback(item.caption, "갤러리 항목")} 이미지 크게 보기`,
+    );
     caption.textContent = withFallback(item.caption, "갤러리 항목");
 
-    figure.append(image, caption);
+    trigger.append(image);
+    figure.append(trigger, caption);
     fragment.append(figure);
   });
 
@@ -261,6 +278,42 @@ function handleTilSubmit(event) {
   elements.tilTitle.focus();
 }
 
+function handleGalleryClick(event) {
+  const trigger = event.target.closest(".gallery-trigger");
+
+  if (!trigger) {
+    return;
+  }
+
+  const image = trigger.querySelector("img");
+  const caption = trigger
+    .closest(".gallery-item")
+    ?.querySelector("figcaption")?.textContent;
+
+  if (!image) {
+    return;
+  }
+
+  openGalleryLightbox({
+    trigger,
+    src: image.currentSrc || image.src,
+    alt: image.alt,
+    caption,
+  });
+}
+
+function handleGalleryLightboxClick(event) {
+  if (event.target === elements.galleryLightbox) {
+    closeGalleryLightbox();
+  }
+}
+
+function handleDocumentKeydown(event) {
+  if (event.key === "Escape") {
+    closeGalleryLightbox();
+  }
+}
+
 function handleTilReset() {
   window.setTimeout(applyTodayDate, 0);
 }
@@ -334,6 +387,36 @@ function createVideoEmbed(videoData) {
   wrapper.append(iframe);
 
   return wrapper;
+}
+
+function openGalleryLightbox({ trigger, src, alt, caption }) {
+  lastGalleryTrigger = trigger;
+  elements.galleryLightboxImage.src = src;
+  elements.galleryLightboxImage.alt = withFallback(alt, "확대된 갤러리 이미지");
+  elements.galleryLightboxCaption.textContent = withFallback(
+    caption,
+    "갤러리 이미지",
+  );
+  elements.galleryLightbox.hidden = false;
+  elements.galleryLightbox.setAttribute("aria-hidden", "false");
+  document.body.classList.add("has-modal");
+  elements.galleryLightboxClose.focus();
+}
+
+function closeGalleryLightbox() {
+  if (elements.galleryLightbox.hidden) {
+    return;
+  }
+
+  elements.galleryLightbox.hidden = true;
+  elements.galleryLightbox.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("has-modal");
+  elements.galleryLightboxImage.removeAttribute("src");
+
+  if (lastGalleryTrigger) {
+    lastGalleryTrigger.focus();
+    lastGalleryTrigger = null;
+  }
 }
 
 function withFallback(value, fallback) {
