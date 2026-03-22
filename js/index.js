@@ -161,7 +161,7 @@ function renderWorks() {
     const info = document.createElement("div");
     const category = document.createElement("p");
     const title = document.createElement("h3");
-    const summary = document.createElement("p");
+    const summary = createWorkSummary(work);
 
     article.className = "work-card";
     thumbnailWrapper.className = "work-thumbnail";
@@ -172,10 +172,6 @@ function renderWorks() {
     thumbnailWrapper.append(createImage(work.image));
     category.textContent = withFallback(work.category, "작품 분류");
     title.textContent = withFallback(work.title, "작품 제목을 입력해주세요.");
-    summary.textContent = withFallback(
-      work.summary,
-      "작품에 대한 설명을 입력해주세요.",
-    );
 
     info.append(category, title, summary);
     body.append(info);
@@ -190,6 +186,27 @@ function renderWorks() {
   });
 
   elements.worksList.replaceChildren(fragment);
+}
+
+function createWorkSummary(work) {
+  const summaryWrapper = document.createElement("div");
+  const summaryParagraphs = Array.isArray(work.summaryParagraphs)
+    ? work.summaryParagraphs
+    : [work.summary];
+
+  summaryWrapper.className = "work-summary";
+
+  summaryParagraphs.forEach((paragraphText) => {
+    const paragraph = document.createElement("p");
+
+    paragraph.textContent = withFallback(
+      paragraphText,
+      "작품에 대한 설명을 입력해주세요.",
+    );
+    summaryWrapper.append(paragraph);
+  });
+
+  return summaryWrapper;
 }
 
 function renderTilEntries(entries) {
@@ -287,6 +304,17 @@ function createImage(imageData) {
 
   image.src = imageData.src;
   image.alt = withFallback(imageData.alt, "이미지");
+
+  if (imageData.fallbackSrc) {
+    image.addEventListener("error", () => {
+      if (image.dataset.fallbackApplied === "true") {
+        return;
+      }
+
+      image.dataset.fallbackApplied = "true";
+      image.src = imageData.fallbackSrc;
+    });
+  }
 
   return image;
 }
