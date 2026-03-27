@@ -50,7 +50,7 @@ export const pageContent = {
       {
         caption: '이상형의 분위기',
         image: {
-          src: './images/이상형.jpeg',
+          src: './images/gallery-ideal-real.jpeg',
           fallbackSrc: './images/gallery-ideal.svg',
           alt: '이상형의 분위기를 떠올리게 하는 사진',
         },
@@ -66,7 +66,7 @@ export const pageContent = {
       {
         caption: '닮은 동물',
         image: {
-          src: './images/레서판다.jpeg',
+          src: './images/gallery-red-panda.jpeg',
           fallbackSrc: './images/gallery-character.svg',
           alt: '레서판다 사진',
         },
