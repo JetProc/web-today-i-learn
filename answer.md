@@ -1,15 +1,11 @@
 # SQL 실습 문제 답안
 
-## 전제
-- 문법은 MySQL 기준으로 작성했다.
-- 문제 1~4를 통해 `attendance`를 정규화하고, 이후 문제는 `crew` 테이블이 이미 존재한다고 가정했다.
-- 제공된 seed 데이터에는 `어셔`, `주니`, `아론`이 없어서 문제 6~9는 `crew.nickname` 기준으로 동작하는 일반형 쿼리로 작성했다.
-
 ## DDL 실습
 
 ### 문제 1. 테이블 생성하기
-생각해보기:
-중복되는 컬럼은 `nickname`이다. `crew_id`와 `nickname`의 매핑이 반복해서 저장되고 있으므로, 크루 고유 정보는 `crew` 테이블로 분리하는 것이 좋다.
+1. 중복되는 컬럼은 `nickname`이다.
+
+2. `crew_id`와 `nickname`의 매핑이 반복해서 저장되고 있으므로, 크루 고유 정보는 `crew` 테이블로 분리할 수 있다.
 
 크루 정보 추출:
 ```sql
@@ -40,8 +36,7 @@ ORDER BY crew_id;
 ```
 
 ### 문제 2. 테이블 컬럼 삭제하기
-생각해보기:
-`crew` 테이블로 크루 정보를 분리했다면, `attendance`에서 불필요해지는 컬럼은 `nickname`이다.
+- `crew` 테이블로 크루 정보를 분리했다면, `attendance`에서 불필요해지는 컬럼은 `nickname`이다.
 
 ```sql
 ALTER TABLE attendance
@@ -49,8 +44,7 @@ DROP COLUMN nickname;
 ```
 
 ### 문제 3. 외래키 설정하기
-생각해보기:
-`attendance.crew_id`가 `crew.crew_id`를 반드시 참조하도록 만들어야, 존재하지 않는 크루의 출석 기록이 남는 고아 데이터 문제를 막을 수 있다.
+- `attendance.crew_id`가 `crew.crew_id`를 반드시 참조하도록 만들어야, 존재하지 않는 크루의 출석 기록이 남는 고아 데이터 문제를 막을 수 있다.
 
 ```sql
 ALTER TABLE attendance
@@ -62,7 +56,6 @@ ON DELETE RESTRICT;
 ```
 
 ### 문제 4. 유니크 키 설정
-생각해보기:
 닉네임 중복이 금지라면 `crew.nickname`에 유니크 제약을 추가해야 한다.
 
 ```sql
@@ -89,8 +82,7 @@ WHERE a.attendance_date = '2025-03-04'
 `디노`
 
 ### 문제 6. 출석 기록 확인하기
-생각해보기:
-누락 여부를 확인할 때는 특정 날짜 조건을 `LEFT JOIN`의 `ON` 절에 두면, 크루는 보이되 출석 기록만 비어 있는 상태를 확인하기 쉽다.
+- 누락 여부를 확인할 때는 특정 날짜 조건을 `LEFT JOIN`의 `ON` 절에 두면, 크루는 보이되 출석 기록만 비어 있는 상태를 확인하기 쉽다.
 
 ```sql
 SELECT
@@ -107,8 +99,7 @@ WHERE c.nickname = '어셔';
 ```
 
 ### 문제 7. 누락된 출석 기록 추가
-생각해보기:
-사후 입력이라도 같은 날짜의 기록이 이미 있으면 중복 삽입이 되면 안 되므로 `NOT EXISTS`를 함께 두는 편이 안전하다.
+- 사후 입력이라도 같은 날짜의 기록이 이미 있으면 중복 삽입이 되면 안 되므로 `NOT EXISTS`를 함께 두는 편이 안전하다.
 
 ```sql
 INSERT INTO attendance (crew_id, attendance_date, start_time, end_time)
@@ -148,8 +139,7 @@ WHERE c.nickname = '아론'
 ```
 
 ### 문제 10. 출석 정보 조회하기
-생각해보기:
-`JOIN`을 사용하면 `crew_id`로 연결된 `nickname`을 함께 가져올 수 있어서, 결과를 사람이 읽기 쉬운 형태로 바로 확인할 수 있다.
+- `JOIN`을 사용하면 `crew_id`로 연결된 `nickname`을 함께 가져올 수 있어서, 결과를 사람이 읽기 쉬운 형태로 바로 확인할 수 있다.
 
 ```sql
 SELECT
